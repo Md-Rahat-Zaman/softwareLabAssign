@@ -53,6 +53,6 @@
 
 	<p>
 
-	<input type=submit value=Update>
+	<input type=submit value=insert>
 
 </form>
