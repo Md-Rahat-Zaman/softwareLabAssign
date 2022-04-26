@@ -28,7 +28,7 @@
 
 	echo "</table> \n";
 
-	echo "<p><a href=create_input.php>CREATE a new record</a>";
+	echo "<p><a href=createInput.php>CREATE a new record</a>";
 ?>
 
 
