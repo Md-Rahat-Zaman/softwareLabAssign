@@ -24,7 +24,7 @@
 
 
 
-<form method=get action=update_result.php>
+<form method=get action=update_reasult.php>
 
 
 
