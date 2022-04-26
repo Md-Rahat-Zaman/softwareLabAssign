@@ -1,9 +1,21 @@
-<?php
+
 <?php
 
-$f0 = $_GET["f0"];
+$user_id= $_GET["user_id"];
 
-$f1 = $_GET["f1"];
+$user_name = $_GET["user_name"];
+
+$user_pass = $_GET["user_pass"];
+
+$email = $_GET["email"];
+
+$Universityuniversity_id = $_GET["Universityuniversity_id"];
+
+$approval = $_GET["approval"];
+
+$status = $_GET["status"];
+
+
 
 
 
@@ -27,5 +39,12 @@ echo "Record inserted:<br> f0 = $f0 <br> f1 = $f1";
 
 echo "<p><a href=read.php>READ all records</a>";
 
-?>
+user_id	
+user_name	
+user_pass	
+email	
+Universityuniversity_id	
+approval	
+status
+
 ?>
