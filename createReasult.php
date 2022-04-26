@@ -27,24 +27,21 @@ $connect = mysqli_connect( HOST, USER, PASS, DB )
 
 
 
-mysqli_query( $connect, "INSERT INTO t0 VALUES ( '', '$f0', '$f1' )" )
+mysqli_query( $connect, "INSERT INTO student VALUES ( '$user_id', '$user_name', '$user_pass', '$email', 
+'$Universityuniversity_id', '$approval', '$status')" )
+
+
 
     or die("Can not execute query");
 
 
 
-echo "Record inserted:<br> f0 = $f0 <br> f1 = $f1";
+echo "Record inserted:<br> user_id = $user_id <br> user_name = $user_name<br> user_pass = $user_pass<br> email = $email<br> Universityuniversity_id = $Universityuniversity_id<br>
+approval = $approval<br> status = $status";
 
 
 
 echo "<p><a href=read.php>READ all records</a>";
 
-user_id	
-user_name	
-user_pass	
-email	
-Universityuniversity_id	
-approval	
-status
 
 ?>
