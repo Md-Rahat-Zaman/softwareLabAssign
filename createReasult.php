@@ -27,7 +27,7 @@ $connect = mysqli_connect( HOST, USER, PASS, DB )
 
 
 
-mysqli_query( $connect, "INSERT INTO student VALUES ( '$user_id', '$user_name', '$user_pass', '$email', 
+mysqli_query( $connect, "INSERT INTO `student` VALUES ( '$user_id', '$user_name', '$user_pass', '$email', 
 '$Universityuniversity_id', '$approval', '$status')" )
 
 
