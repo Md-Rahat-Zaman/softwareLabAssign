@@ -28,28 +28,28 @@
 
 
 
-	user_id: <input type=int name=user_id value='<?php echo $user_id; ?>'> <br>
+	user_id: <input type=int name=user_id > <br>
 
 
 
-	user_name: <input type=text name=user_name value='<?php echo $user_name; ?>'> <br>
+	user_name: <input type=text name=user_name > <br>
 
 
 	<p>
 
-	user_pass: <input type=text name=user_pass value='<?php echo $user_pass; ?>'> <br>
+	user_pass: <input type=text name=user_pass> <br>
 
 	<p>
 
-	email: <input type=text name=email value='<?php echo $email; ?>'> <br>
+	email: <input type=text name=email > <br>
 	<p>
-	Universityuniversity_id: <input type=int name=Universityuniversity_id value='<?php echo $Universityuniversity_id; ?>'> <br>
+	Universityuniversity_id: <input type=int name=Universityuniversity_id > <br>
 
-	approval: <input type=int name=approval value='<?php echo $approval; ?>'> <br>
+	approval: <input type=int name=approval > <br>
 
 	<p>
 
-	status: <input type=int name=status value='<?php echo $status; ?>'> <br>
+	status: <input type=int name=status > <br>
 
 	<p>
 
