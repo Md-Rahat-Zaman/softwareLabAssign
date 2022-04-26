@@ -26,7 +26,7 @@
 
 
 	$query 	= "UPDATE `student` SET user_id='$user_id', user_name='$user_name' , user_pass='$user_pass', 
-	email='$email', approval='$approval', status='$status' WHERE user_id = $user_id";
+	email='$email', Universityuniversity_id = '$Universityuniversity_id',approval='$approval', status='$status' WHERE user_id = $user_id";
 
 	echo $query;
 
@@ -38,7 +38,7 @@
 
 
 
-	echo "<p>Record updated:<br> user_id = $user_id <br> user_name = $user_name<br> user_pass = $user_pass<br> email = $email<br> approval = $approval<br> status = $status";
+	echo "<p>Record updated:<br> user_id = $user_id <br> user_name = $user_name<br> user_pass = $user_pass<br>Universityuniversity_id= $Universityuniversity_id<br>email = $email<br> approval = $approval<br> status = $status";
 
 
 
