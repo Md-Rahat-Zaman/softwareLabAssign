@@ -3,7 +3,7 @@
 
 
 
-<form method=get action=create_result.php>
+<form method=get action=createReasult.php>
 
 user_id	: <input type=text name=user_id	> <br>
 
@@ -35,6 +35,7 @@ user_id	: <input type=text name=user_id	> <br>
 
 	<input type=submit value=Insert>
     
+
 
 
 </form>
