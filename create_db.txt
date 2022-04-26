@@ -1,0 +1,477 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 29, 2021 at 07:19 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `campyv4`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `user_id` varchar(15) NOT NULL,
+  `user_pass` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`user_id`, `user_pass`) VALUES
+('admin', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `course_id` varchar(15) NOT NULL,
+  `course_name` varchar(100) NOT NULL,
+  `course_description` varchar(255) DEFAULT NULL,
+  `Universityuniversity_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`course_id`, `course_name`, `course_description`, `Universityuniversity_id`) VALUES
+('DBMS_3522_B', 'Database Management system  B', 'a database course', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses_classroom`
+--
+
+CREATE TABLE `courses_classroom` (
+  `coursescourse_id` varchar(15) NOT NULL,
+  `enrollment_pass` varchar(20) NOT NULL,
+  `Teacheruser_id` varchar(15) NOT NULL,
+  `Trimester_no` int(11) NOT NULL,
+  `Dept_info` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plagiarismcheck`
+--
+
+CREATE TABLE `plagiarismcheck` (
+  `serial` int(20) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `course_id` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `project_id` int(10) NOT NULL,
+  `complete` binary(1) NOT NULL DEFAULT '0',
+  `project_name` varchar(30) NOT NULL,
+  `project_abstract` varchar(255) NOT NULL,
+  `project_filepath` varchar(255) NOT NULL,
+  `student_course_classroomid` int(10) NOT NULL,
+  `student_course_classroomStudentuser_id` varchar(15) NOT NULL,
+  `student_course_classroomcourses_classroomcoursescourse_id` varchar(15) NOT NULL,
+  `Universityuniversity_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `user_id` varchar(15) NOT NULL,
+  `user_name` varchar(30) NOT NULL,
+  `user_pass` varchar(100) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `Universityuniversity_id` int(5) NOT NULL,
+  `approval` binary(1) NOT NULL DEFAULT '0',
+  `status` binary(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`user_id`, `user_name`, `user_pass`, `email`, `Universityuniversity_id`, `approval`, `status`) VALUES
+('011183040', 'Abdullah Al Masud', '123', 'aamasud@gmail.com', 1, 0x31, 0x31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_course_classroom`
+--
+
+CREATE TABLE `student_course_classroom` (
+  `id` int(10) NOT NULL,
+  `Studentuser_id` varchar(15) NOT NULL,
+  `courses_classroomcoursescourse_id` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_project_view_request`
+--
+
+CREATE TABLE `student_project_view_request` (
+  `Studentuser_id` varchar(15) NOT NULL,
+  `project_id` int(10) NOT NULL,
+  `approval` binary(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supportedlangauges`
+--
+
+CREATE TABLE `supportedlangauges` (
+  `filetypename` varchar(100) NOT NULL,
+  `fileextension` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE `tag` (
+  `tag_id` int(5) NOT NULL,
+  `tag_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag_project`
+--
+
+CREATE TABLE `tag_project` (
+  `tagtag_id` int(5) NOT NULL,
+  `projectproject_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `user_id` varchar(15) NOT NULL,
+  `user_name` varchar(30) NOT NULL,
+  `user_pass` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `Universityuniversity_id` int(5) NOT NULL,
+  `dept_name` varchar(30) NOT NULL,
+  `approval` binary(1) NOT NULL DEFAULT '0',
+  `status` binary(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_student_projectview`
+--
+
+CREATE TABLE `teacher_student_projectview` (
+  `Teacheruser_id` varchar(15) NOT NULL,
+  `project_id` int(10) NOT NULL,
+  `approval` int(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `university`
+--
+
+CREATE TABLE `university` (
+  `university_id` int(5) NOT NULL,
+  `university_name` varchar(50) NOT NULL,
+  `university_email` varchar(30) NOT NULL,
+  `approval` binary(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `university`
+--
+
+INSERT INTO `university` (`university_id`, `university_name`, `university_email`, `approval`) VALUES
+(1, 'United International University', 'uiu@ac.bd', 0x31),
+(2, 'Bangladesh University of Engineering and Technolog', 'buet@edu.bd', 0x31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `university_authority`
+--
+
+CREATE TABLE `university_authority` (
+  `user_id` varchar(15) NOT NULL,
+  `user_pass` varchar(20) NOT NULL,
+  `Universityuniversity_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `university_authority`
+--
+
+INSERT INTO `university_authority` (`user_id`, `user_pass`, `Universityuniversity_id`) VALUES
+('abc', '123', 2),
+('monir', '123', 1),
+('saddamsir', '123', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`course_id`),
+  ADD KEY `FKcourses7448` (`Universityuniversity_id`);
+
+--
+-- Indexes for table `courses_classroom`
+--
+ALTER TABLE `courses_classroom`
+  ADD PRIMARY KEY (`coursescourse_id`),
+  ADD KEY `FKcourses_cl288221` (`coursescourse_id`),
+  ADD KEY `FKcourses_cl132174` (`Teacheruser_id`);
+
+--
+-- Indexes for table `plagiarismcheck`
+--
+ALTER TABLE `plagiarismcheck`
+  ADD PRIMARY KEY (`serial`),
+  ADD KEY `cid` (`course_id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`project_id`),
+  ADD KEY `FKproject746629` (`Universityuniversity_id`),
+  ADD KEY `FKproject684678` (`student_course_classroomid`,`student_course_classroomStudentuser_id`,`student_course_classroomcourses_classroomcoursescourse_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `FKStudent564774` (`Universityuniversity_id`);
+
+--
+-- Indexes for table `student_course_classroom`
+--
+ALTER TABLE `student_course_classroom`
+  ADD PRIMARY KEY (`id`,`Studentuser_id`,`courses_classroomcoursescourse_id`),
+  ADD KEY `FKstudent_co262534` (`Studentuser_id`),
+  ADD KEY `FKstudent_co617644` (`courses_classroomcoursescourse_id`);
+
+--
+-- Indexes for table `student_project_view_request`
+--
+ALTER TABLE `student_project_view_request`
+  ADD PRIMARY KEY (`Studentuser_id`,`project_id`),
+  ADD KEY `FKStudent_pr304597` (`Studentuser_id`),
+  ADD KEY `FKStudent_pr170045` (`project_id`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`tag_id`),
+  ADD UNIQUE KEY `tag_name` (`tag_name`);
+
+--
+-- Indexes for table `tag_project`
+--
+ALTER TABLE `tag_project`
+  ADD KEY `FKtag_projec416107` (`tagtag_id`),
+  ADD KEY `FKtag_projec663586` (`projectproject_id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `FKTeacher134021` (`Universityuniversity_id`);
+
+--
+-- Indexes for table `teacher_student_projectview`
+--
+ALTER TABLE `teacher_student_projectview`
+  ADD KEY `fk1` (`Teacheruser_id`),
+  ADD KEY `fk2` (`project_id`);
+
+--
+-- Indexes for table `university`
+--
+ALTER TABLE `university`
+  ADD PRIMARY KEY (`university_id`),
+  ADD UNIQUE KEY `university_email` (`university_email`);
+
+--
+-- Indexes for table `university_authority`
+--
+ALTER TABLE `university_authority`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `FKUniversity250470` (`Universityuniversity_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `plagiarismcheck`
+--
+ALTER TABLE `plagiarismcheck`
+  MODIFY `serial` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `project_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `student_course_classroom`
+--
+ALTER TABLE `student_course_classroom`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `tag_id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `university`
+--
+ALTER TABLE `university`
+  MODIFY `university_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `courses`
+--
+ALTER TABLE `courses`
+  ADD CONSTRAINT `FKcourses7448` FOREIGN KEY (`Universityuniversity_id`) REFERENCES `university` (`university_id`);
+
+--
+-- Constraints for table `courses_classroom`
+--
+ALTER TABLE `courses_classroom`
+  ADD CONSTRAINT `FKcourses_cl132174` FOREIGN KEY (`Teacheruser_id`) REFERENCES `teacher` (`user_id`),
+  ADD CONSTRAINT `FKcourses_cl288221` FOREIGN KEY (`coursescourse_id`) REFERENCES `courses` (`course_id`);
+
+--
+-- Constraints for table `plagiarismcheck`
+--
+ALTER TABLE `plagiarismcheck`
+  ADD CONSTRAINT `cid` FOREIGN KEY (`course_id`) REFERENCES `courses_classroom` (`coursescourse_id`);
+
+--
+-- Constraints for table `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `FKproject684678` FOREIGN KEY (`student_course_classroomid`) REFERENCES `student_course_classroom` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FKproject746629` FOREIGN KEY (`Universityuniversity_id`) REFERENCES `university` (`university_id`);
+
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `FKStudent564774` FOREIGN KEY (`Universityuniversity_id`) REFERENCES `university` (`university_id`);
+
+--
+-- Constraints for table `student_course_classroom`
+--
+ALTER TABLE `student_course_classroom`
+  ADD CONSTRAINT `FKstudent_co262534` FOREIGN KEY (`Studentuser_id`) REFERENCES `student` (`user_id`),
+  ADD CONSTRAINT `FKstudent_co617644` FOREIGN KEY (`courses_classroomcoursescourse_id`) REFERENCES `courses_classroom` (`coursescourse_id`);
+
+--
+-- Constraints for table `student_project_view_request`
+--
+ALTER TABLE `student_project_view_request`
+  ADD CONSTRAINT `FKStudent_pr170045` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
+  ADD CONSTRAINT `FKStudent_pr304597` FOREIGN KEY (`Studentuser_id`) REFERENCES `student` (`user_id`);
+
+--
+-- Constraints for table `tag_project`
+--
+ALTER TABLE `tag_project`
+  ADD CONSTRAINT `FKtag_projec416107` FOREIGN KEY (`tagtag_id`) REFERENCES `tag` (`tag_id`),
+  ADD CONSTRAINT `FKtag_projec663586` FOREIGN KEY (`projectproject_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD CONSTRAINT `FKTeacher134021` FOREIGN KEY (`Universityuniversity_id`) REFERENCES `university` (`university_id`);
+
+--
+-- Constraints for table `teacher_student_projectview`
+--
+ALTER TABLE `teacher_student_projectview`
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`Teacheruser_id`) REFERENCES `teacher` (`user_id`),
+  ADD CONSTRAINT `fk2` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `university_authority`
+--
+ALTER TABLE `university_authority`
+  ADD CONSTRAINT `FKUniversity250470` FOREIGN KEY (`Universityuniversity_id`) REFERENCES `university` (`university_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
