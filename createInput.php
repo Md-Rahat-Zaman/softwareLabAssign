@@ -20,11 +20,11 @@
 
     <p>
 
-    Universityuniversity_id: <input type=int name=Universityuniversity_id> <br>
+    Universityuniversity_id: <input type=binary name=Universityuniversity_id> <br>
 
 
 	<p>
-    approval: <input type=text name=approval> <br>
+    approval: <input type=binary name=approval> <br>
 
 
     <p>
