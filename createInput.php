@@ -5,7 +5,7 @@
 
 <form method=get action=createReasult.php>
 
-user_id	: <input type=text name=user_id	> <br>
+    user_id	: <input type=text name=user_id	> <br>
 
 	<p>
 
@@ -20,7 +20,7 @@ user_id	: <input type=text name=user_id	> <br>
 
     <p>
 
-    Universityuniversity_id: <input type=text name=Universityuniversity_id> <br>
+    Universityuniversity_id: <input type=int name=Universityuniversity_id> <br>
 
 
 	<p>

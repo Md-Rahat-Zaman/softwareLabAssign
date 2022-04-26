@@ -32,7 +32,7 @@ mysqli_query( $connect, "INSERT INTO `student` VALUES ( '$user_id', '$user_name'
 
 
 
-    or die("Can not execute query");
+    or die("Can not execute query why");
 
 
 
