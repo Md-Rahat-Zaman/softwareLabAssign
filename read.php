@@ -21,7 +21,6 @@
 	while( $rows = mysqli_fetch_array( $results ) ) {
 		extract( $rows );
 		echo "<tr>";
-
 		echo "<td>$user_id </td>";
 		echo "<td> $user_name </td>";
 		echo "<td> $user_pass </td>";
