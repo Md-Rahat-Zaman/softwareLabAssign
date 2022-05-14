@@ -1,4 +1,6 @@
 
+<img style = "position:relative; left:390px;" src="student.png">
+<h1 style = "position:relative; left:390px;">The new student Data</h1>
 <?php
 
 $user_id= $_GET["user_id"];
