@@ -3,7 +3,8 @@
 		<head>
 
 		</head>
-		<body>
+		<body style="background-color:#ADD8E6;">
+		
 
 		<<img style = "position:relative;left:390px;" src="student.png" alt="">
 		<?php

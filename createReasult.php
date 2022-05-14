@@ -1,5 +1,10 @@
+<DOCTYPE html>
+<html>
+    <head>
 
-<img style = "position:relative; left:390px;" src="student.png">
+    </head>
+    <body  style="background-color:#ADD8E6;">
+    <img style = "position:relative; left:390px;" src="student.png">
 <h1 style = "position:relative; left:390px;">The new student Data</h1>
 <?php
 
@@ -47,3 +52,6 @@ echo "<p><a href=read.php>READ all records</a>";
 
 
 ?>
+
+    </body>
+</html>

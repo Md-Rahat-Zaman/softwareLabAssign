@@ -1,4 +1,10 @@
-<h1>Create Record</h1>
+<DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+	<body style="background-color:#ADD8E6;">
+	<h1>Create Record</h1>
 
 <img style="position: relative; left: 390px;" src="student.png">
 
@@ -30,3 +36,5 @@
 	<input  style="border-color:  #ADD8E6;position: relative; bottom: -30px; left: 80px;" type=submit value=Insert>
 
 </form>
+	</body>
+</html>
