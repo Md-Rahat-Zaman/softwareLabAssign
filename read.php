@@ -1,4 +1,12 @@
-<?php
+<DOCTYPE html>
+	<html>
+		<head>
+
+		</head>
+		<body>
+
+		<<img style = "position:relative;left:390px;" src="student.png" alt="">
+		<?php
 	require_once('db_connect.php');
 	$connect = mysqli_connect( HOST, USER, PASS, DB )
 		or die("Can not connect");
@@ -13,7 +21,8 @@
 	while( $rows = mysqli_fetch_array( $results ) ) {
 		extract( $rows );
 		echo "<tr>";
-		echo "<td> $user_id </td>";
+
+		echo "<td>$user_id </td>";
 		echo "<td> $user_name </td>";
 		echo "<td> $user_pass </td>";
 		echo "<td> $email </td>";
@@ -30,6 +39,10 @@
 
 	echo "<p><a href=createInput.php>CREATE a new record</a>";
 ?>
+
+		</body>
+	</html>
+</DOCTYPE>
 
 
 
